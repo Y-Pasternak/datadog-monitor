@@ -7,7 +7,7 @@ resource "datadog_monitor" "cpu_high" {
   name               = var.monitor_name
   type               = "metric alert"
   message            = var.alert_message
-  escalation_message = "Please take immediate action."
+  escalation_message = "High CPU usage. Please take immediate action."
 
   query = "avg(last_5m):avg:system.cpu.user{${var.monitor_tags}} by {host} > ${var.cpu_threshold}"
 
